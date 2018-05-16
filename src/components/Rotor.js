@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
 import Transition from 'react-transition-group/Transition';
 
 import RotorWindow from './RotorWindow';
@@ -21,8 +22,15 @@ export default class Rotor extends Component {
     }
 
     render() {
+        // <button onClick={() => this.setState({in: true, forwards: true})}>Forwards</button>
+        // <button onClick={() => this.setState({in: true, forwards: false})}>Backwards</button>
         return (
-            <div>
+            <div className="rotor-window-wrapper">
+                <div className="rotor-turnover-button">
+                    <a onClick={() => this.setState({in: true, forwards: false})}>
+                        <FontAwesome tag="span" size="2x" name="arrow-circle-up" />
+                    </a>
+                </div>
                 <Transition
                     timeout={150}
                     in={this.state.in}
@@ -34,8 +42,11 @@ export default class Rotor extends Component {
                         <RotorWindow status={status} number={this.state.number} forwards={this.state.forwards} />
                     )}    
                 </Transition>
-                <button onClick={() => this.setState({in: true, forwards: true})}>Forwards</button>
-                <button onClick={() => this.setState({in: true, forwards: false})}>Backwards</button>                
+                <div className="rotor-turnover-button">
+                    <a onClick={() => this.setState({in: true, forwards: true})}>
+                        <FontAwesome tag="i" size="2x" name="arrow-circle-down" />
+                    </a>   
+                </div>         
             </div>
         );
     }
