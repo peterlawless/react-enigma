@@ -47,7 +47,8 @@ body {
 }
 
 .rotor-letter {
-    font-size: 22px;
+    font-size: 25px;
+    text-shadow: -1px -1px 4px #fff, 1px 1px 4px #000;
     background-color: beige;
     color: black;
     display: flex;

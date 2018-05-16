@@ -22,8 +22,6 @@ export default class Rotor extends Component {
     }
 
     render() {
-        // <button onClick={() => this.setState({in: true, forwards: true})}>Forwards</button>
-        // <button onClick={() => this.setState({in: true, forwards: false})}>Backwards</button>
         return (
             <div className="rotor-window-wrapper">
                 <div className="rotor-turnover-button">
