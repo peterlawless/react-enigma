@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import './style/index.css';
+import './style/index.scss';
 
 import Rotor from './components/Rotor';
 // import {createStore} from 'redux';

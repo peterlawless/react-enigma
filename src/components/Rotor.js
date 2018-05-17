@@ -42,7 +42,7 @@ export default class Rotor extends Component {
                 </Transition>
                 <div className="rotor-turnover-button">
                     <a onClick={() => this.setState({in: true, forwards: true})}>
-                        <FontAwesome tag="i" size="2x" name="arrow-circle-down" />
+                        <FontAwesome tag="span" size="2x" name="arrow-circle-down" />
                     </a>   
                 </div>         
             </div>
