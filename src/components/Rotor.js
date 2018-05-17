@@ -23,7 +23,7 @@ export default class Rotor extends Component {
 
     render() {
         return (
-            <div className="rotor-window-wrapper">
+            <div className="rotor-assembly-wrapper">
                 <div className="rotor-turnover-button">
                     <a onClick={() => this.setState({in: true, forwards: false})}>
                         <FontAwesome tag="span" size="2x" name="arrow-circle-up" />

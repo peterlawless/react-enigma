@@ -8,7 +8,7 @@ body {
     flex-direction: row;
 }
 
-.rotor-window-wrapper {
+.rotor-assembly-wrapper {
     height: 220px;
     width: 80px;
     display: flex;
@@ -46,7 +46,17 @@ body {
     height: 56px;
     background-color: transparent;
     overflow: hidden;
-    box-shadow: inset 0 10px 10px red, inset 0 -10px 10px red;
+    position: relative;
+}
+
+.rotor-window-overlay {
+    box-shadow: inset 0 10px 10px rgba(54, 54, 54, 0.5), inset 0 -10px 10px rgba(54, 54, 54, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 56px;
+    width: 56px;
+    z-index: 1;
 }
 
 .rotor {

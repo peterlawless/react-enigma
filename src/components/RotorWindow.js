@@ -8,6 +8,7 @@ export default props => {
     }
     return (
         <div className="rotor-window">
+            <div className="rotor-window-overlay"></div>            
             <div className={'rotor ' + appliedAnimation}>
                 <div className="rotor-letter">
                     {alphabetBiMap.inverse.get((props.number + 25) % 26)}
