@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import './style/index.scss';
 
 import Rotor from './components/Rotor';
+import LampBoard from './components/LampBoard';
 // import {createStore} from 'redux';
 // import {Provider} from 'react-redux';
 
@@ -14,10 +15,13 @@ class App extends Component {
 
     render() {
         return (
-            <div className= "rotors">
-                <Rotor />
-                <Rotor />
-                <Rotor />            
+            <div>
+                <div className= "rotors">
+                    <Rotor />
+                    <Rotor />
+                    <Rotor />            
+                </div>
+                <LampBoard />
             </div>
         );
     }
