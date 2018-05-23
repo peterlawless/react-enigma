@@ -8,6 +8,12 @@ body {
     flex-direction: row;
 }
 
+.rotor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .rotor-assembly-wrapper {
     height: 220px;
     width: 80px;
@@ -62,7 +68,7 @@ body {
     z-index: 1;
 }
 
-.rotor {
+.rotor-wheel {
     position: relative;
     top: -56px;
 }
@@ -81,6 +87,13 @@ body {
     width: 50px;
     height: 50px;
     border: 3px solid black;
+}
+
+.rotor-drop-target {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border-radius: 3%;
 }
 
 .slide-forward {
