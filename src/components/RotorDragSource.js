@@ -3,9 +3,10 @@ import { DragSource } from 'react-dnd';
 
 import { ItemTypes } from '../constants';
 
-
 const rotorSource = {
-
+    beginDrag(props, monitor) {
+        return { model: props.model };
+    }
 };
 
 function collect(connect, monitor) {
@@ -16,9 +17,10 @@ function collect(connect, monitor) {
 
 class RotorDragSource extends Component {
     render() {
+        const { connectDragSource } = this.props;
         return connectDragSource(
             <div className="rotor-drag-source">
-                {this.props.children}
+                {this.props.model}
             </div>
         );
     }

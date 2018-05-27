@@ -5,13 +5,25 @@ export function shiftNumber(letter1, letter2) {
 }
 
 export function shiftLetter(letter, number) {
-    return alphabetBiMap.inverse.get((alphabetBiMap.get(letter) + number + 26) % 26);
+    return getLetterFromNumber(alphabetBiMap.get(letter) + number);
 }
 
 export function isSingleLetter(letter) {
     return /^[A-Z]{1}$/.test(letter);
 }
 
-export function scrambleBoardMapping(letter, scrambleBoard) {
-    return scrambleBoard.get(letter) || scrambleBoard.inverse.get(letter) || letter;
+export function bidirectionalMapFrom(letter, biMap) {
+    return biMap.get(letter) || biMap.inverse.get(letter) || letter;
+}
+
+export function alphabetLoopIncrement(letter) {
+    return getLetterFromNumber(alphabetBiMap.get(letter) + 1);
+}
+
+export function alphabetLoopDecrement(letter) {
+    return getLetterFromNumber(alphabetBiMap.get(letter) - 1);
+}
+
+function getLetterFromNumber(number) {
+    return alphabetBiMap.inverse.get((number + 26) % 26);
 }

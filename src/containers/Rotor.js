@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Transition from 'react-transition-group/Transition';
+import { connect } from 'react-redux';
 
-import RotorWindow from './RotorWindow';
-import RotorDropTarget from './RotorDropTarget';
+import RotorWindow from '../components/RotorWindow';
+import RotorDropTarget from '../components/RotorDropTarget';
 
-export default class Rotor extends Component {
+import * as rotorActions from '../actions/rotor_actions';
+
+class Rotor extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -53,3 +56,5 @@ export default class Rotor extends Component {
         );
     }
 }
+
+export default connect(()=> ({}), rotorActions)(Rotor);

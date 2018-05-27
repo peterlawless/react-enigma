@@ -7,6 +7,7 @@ import '../style/index.scss';
 
 import Scrambler from './Scrambler';
 import LampBoard from './LampBoard';
+import WheelBox from './WheelBox';
 
 class App extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class App extends Component {
     render() {
         return (
             <div>
+                <WheelBox />
                 <Scrambler />
                 <LampBoard />
             </div>
