@@ -7,6 +7,7 @@ import RotorWindow from '../components/RotorWindow';
 import RotorDropTarget from '../components/RotorDropTarget';
 
 import * as rotorActions from '../actions/rotor_actions';
+import RotorDragSource from '../components/RotorDragSource';
 
 class Rotor extends Component {
     constructor(props) {
@@ -30,6 +31,10 @@ class Rotor extends Component {
         console.log(model);
         const {setModel, rotorType} = this.props;
         setModel(rotorType, model);
+    }
+
+    renderDragSource() {
+        return this.props.model ? <RotorDragSource model={this.props.model} /> : null;
     }
 
     render() {
@@ -58,7 +63,9 @@ class Rotor extends Component {
                         </a>   
                     </div>         
                 </div>
-                <RotorDropTarget handleDrop={this.handleDrop}/>
+                <RotorDropTarget handleDrop={this.handleDrop}>
+                    {this.renderDragSource()}
+                </RotorDropTarget>
             </div>
         );
     }
