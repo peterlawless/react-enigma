@@ -7,9 +7,9 @@ export function advanceRotor(rotorType) {
     };
 }
 
-export function setModel(rotorType, rotorModel) {
+export function setModel(rotorType, model) {
     return {
         type: RotorActionTypes.SET_MODEL,
-        payload: { rotorType, rotorModel }
+        payload: { rotorType, model }
     };
 }

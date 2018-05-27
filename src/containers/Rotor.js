@@ -17,12 +17,19 @@ class Rotor extends Component {
             forwards: true
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleDrop = this.handleDrop.bind(this);
     }
 
     handleClick(e) {
         this.setState({
             in: true
         });
+    }
+
+    handleDrop({model}) {
+        console.log(model);
+        const {setModel, rotorType} = this.props;
+        setModel(rotorType, model);
     }
 
     render() {
@@ -51,10 +58,14 @@ class Rotor extends Component {
                         </a>   
                     </div>         
                 </div>
-                <RotorDropTarget />
+                <RotorDropTarget handleDrop={this.handleDrop}/>
             </div>
         );
     }
 }
 
-export default connect(()=> ({}), rotorActions)(Rotor);
+function mapStateToProps(state, ownProps) {
+    return state.rotors[ownProps.rotorType];
+}
+
+export default connect(mapStateToProps, rotorActions)(Rotor);
