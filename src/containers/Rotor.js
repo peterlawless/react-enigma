@@ -9,7 +9,7 @@ import RotorDnD from '../components/RotorDnD';
 import * as rotorActions from '../actions/rotor_actions';
 import { GREEK_WHEEL } from '../constants';
 import { greekWheelKeys } from '../../enigma/constants';
-import RadioButtonSelect from '../components/RadioButtonSelect';
+import ButtonGroup from '../components/ButtonGroup';
 
 class Rotor extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class Rotor extends Component {
             forwards: true
         };
         this.handleClick = this.handleClick.bind(this);
-        this.handleDrop = this.handleDrop.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
         this.renderRotorSelector = this.renderRotorSelector.bind(this);
     }
 
@@ -30,7 +30,7 @@ class Rotor extends Component {
         });
     }
 
-    handleDrop({model}) {
+    handleSelect({model}) {
         const {setModel, rotorType} = this.props;
         setModel(rotorType, model);
     }
@@ -38,8 +38,12 @@ class Rotor extends Component {
     renderRotorSelector() {
         const { model } = this.props;
         return this.props.rotorType === GREEK_WHEEL ?
-            <RadioButtonSelect models={greekWheelKeys} model={model}/> :
-            <RotorDnD handleDrop={this.handleDrop} model={model}/>;
+            <ButtonGroup
+                handleClick={this.handleSelect}
+                models={greekWheelKeys}
+                model={model}
+            /> :
+            <RotorDnD handleDrop={this.handleSelect} model={model}/>;
     }
 
     render() {
