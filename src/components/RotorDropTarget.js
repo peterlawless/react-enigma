@@ -5,8 +5,6 @@ import { ItemTypes } from '../constants';
 
 const rotorTarget = {
     drop(props, monitor) {
-        console.log(monitor.getItem());
-        // call action to modify redux store
         props.handleDrop(monitor.getItem());
     }
 }

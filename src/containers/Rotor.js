@@ -4,10 +4,10 @@ import Transition from 'react-transition-group/Transition';
 import { connect } from 'react-redux';
 
 import RotorWindow from '../components/RotorWindow';
-import RotorDropTarget from '../components/RotorDropTarget';
 
 import * as rotorActions from '../actions/rotor_actions';
-import RotorDragSource from '../components/RotorDragSource';
+import RotorDnD from '../components/RotorDnD';
+
 
 class Rotor extends Component {
     constructor(props) {
@@ -28,7 +28,6 @@ class Rotor extends Component {
     }
 
     handleDrop({model}) {
-        console.log(model);
         const {setModel, rotorType} = this.props;
         setModel(rotorType, model);
     }
@@ -63,9 +62,7 @@ class Rotor extends Component {
                         </a>   
                     </div>         
                 </div>
-                <RotorDropTarget handleDrop={this.handleDrop}>
-                    {this.renderDragSource()}
-                </RotorDropTarget>
+                <RotorDnD handleDrop={this.handleDrop} model={this.props.model}/>
             </div>
         );
     }

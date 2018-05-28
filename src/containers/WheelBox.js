@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import RotorDropTarget from '../components/RotorDropTarget';
-import RotorDragSource from '../components/RotorDragSource';
+import RotorDnD from '../components/RotorDnD';
 
 import { rotorKeys } from '../../enigma/constants';
 
@@ -16,11 +15,9 @@ class WheelBox extends Component {
         return (
             <header className="header">
                 {rotorKeys.map(model => {
-                    const rotorDragSource = rotorsInUse.includes(model) ? null : <RotorDragSource model={model} />
+                    const availableModel = rotorsInUse.includes(model) ? false : model;
                     return (
-                        <RotorDropTarget key={model}>
-                            {rotorDragSource}
-                        </RotorDropTarget>
+                        <RotorDnD model={availableModel} key={model} handleDrop={() => {}}/>
                     );
                 })}
             </header>
