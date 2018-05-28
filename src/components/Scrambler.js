@@ -6,6 +6,7 @@ export default class Scrambler extends Component {
     render() {
         return (
             <div className= "rotors">
+                <Rotor rotorType={RotorTypes.GREEK_WHEEL} />
                 <Rotor rotorType={RotorTypes.SLOW_ROTOR} />
                 <Rotor rotorType={RotorTypes.CENTER_ROTOR} />
                 <Rotor rotorType={RotorTypes.FAST_ROTOR} />            

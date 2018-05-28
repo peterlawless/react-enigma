@@ -3,6 +3,10 @@ import { alphabetLoopIncrement, alphabetLoopDecrement } from '../../enigma/utils
 import { RotorActionTypes, RotorTypes } from '../constants';
 
 const initialState = {
+    [RotorTypes.GREEK_WHEEL]: {
+        model: 'beta',
+        exposedLetter: 'A'
+    },
     [RotorTypes.SLOW_ROTOR]: {
         model: 'I',
         exposedLetter: 'A'

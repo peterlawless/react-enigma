@@ -4,10 +4,12 @@ import Transition from 'react-transition-group/Transition';
 import { connect } from 'react-redux';
 
 import RotorWindow from '../components/RotorWindow';
-
-import * as rotorActions from '../actions/rotor_actions';
 import RotorDnD from '../components/RotorDnD';
 
+import * as rotorActions from '../actions/rotor_actions';
+import { RotorTypes } from '../constants';
+import { greekWheelKeys } from '../../enigma/constants';
+import RadioButtonSelect from '../components/RadioButtonSelect';
 
 class Rotor extends Component {
     constructor(props) {
@@ -19,6 +21,7 @@ class Rotor extends Component {
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleDrop = this.handleDrop.bind(this);
+        this.renderRotorSelector = this.renderRotorSelector.bind(this);
     }
 
     handleClick(e) {
@@ -30,6 +33,12 @@ class Rotor extends Component {
     handleDrop({model}) {
         const {setModel, rotorType} = this.props;
         setModel(rotorType, model);
+    }
+
+    renderRotorSelector() {
+        return this.props.rotorType === RotorTypes.GREEK_WHEEL ?
+            <RadioButtonSelect models={greekWheelKeys} /> :
+            <RotorDnD handleDrop={this.handleDrop} model={this.props.model}/>;
     }
 
     render() {
@@ -58,7 +67,7 @@ class Rotor extends Component {
                         </a>   
                     </div>         
                 </div>
-                <RotorDnD handleDrop={this.handleDrop} model={this.props.model}/>
+                {this.renderRotorSelector()}
             </div>
         );
     }
