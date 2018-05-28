@@ -32,10 +32,6 @@ class Rotor extends Component {
         setModel(rotorType, model);
     }
 
-    renderDragSource() {
-        return this.props.model ? <RotorDragSource model={this.props.model} /> : null;
-    }
-
     render() {
         return (
             <div className="rotor">
