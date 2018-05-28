@@ -7,7 +7,7 @@ import '../style/index.scss';
 
 import Scrambler from './Scrambler';
 import LampBoard from './LampBoard';
-import WheelBox from './WheelBox';
+import WheelBox from '../containers/WheelBox';
 
 class App extends Component {
     constructor(props) {

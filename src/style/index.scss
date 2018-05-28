@@ -105,10 +105,17 @@ body {
 .rotor-drag-source {
     width: 48px;
     height: 48px;
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: 100;
+    text-align: center;
     background-color: black;
     color: white;
     border-radius: 10%;
     margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slide-forward {
