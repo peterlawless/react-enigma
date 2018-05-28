@@ -9,9 +9,7 @@ export const RotorActionTypes = {
     SET_MODEL: 'set_model'
 };
 
-export const RotorTypes = {
-    GREEK_WHEEL: 'greekWheel',
-    SLOW_ROTOR: 'slowRotor',
-    CENTER_ROTOR: 'centerRotor',
-    FAST_ROTOR: 'fastRotor'
-}
+export const GREEK_WHEEL = 'greekWheel';
+export const SLOW_ROTOR = 'slowRotor';
+export const CENTER_ROTOR  = 'centerRotor';
+export const FAST_ROTOR = 'fastRotor';

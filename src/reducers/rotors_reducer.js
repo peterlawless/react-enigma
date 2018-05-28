@@ -1,21 +1,27 @@
 import { alphabetBiMap, RotorTurnoverLetters } from '../../enigma/constants';
 import { alphabetLoopIncrement, alphabetLoopDecrement } from '../../enigma/utils';
-import { RotorActionTypes, RotorTypes } from '../constants';
+import {
+    RotorActionTypes,
+    GREEK_WHEEL,
+    SLOW_ROTOR,
+    CENTER_ROTOR,
+    FAST_ROTOR
+} from '../constants';
 
 const initialState = {
-    [RotorTypes.GREEK_WHEEL]: {
+    [GREEK_WHEEL]: {
         model: 'beta',
         exposedLetter: 'A'
     },
-    [RotorTypes.SLOW_ROTOR]: {
+    [SLOW_ROTOR]: {
         model: 'I',
         exposedLetter: 'A'
     },
-    [RotorTypes.CENTER_ROTOR]: {
+    [CENTER_ROTOR]: {
         model: 'II',
         exposedLetter: 'A'
     },
-    [RotorTypes.FAST_ROTOR]: {
+    [FAST_ROTOR]: {
         model: 'III',
         exposedLetter: 'A'
     }

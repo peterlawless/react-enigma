@@ -1,4 +1,4 @@
-import { RotorActionTypes, RotorTypes } from '../constants';
+import { RotorActionTypes } from '../constants';
 
 export function advanceRotor(rotorType) {
     return {

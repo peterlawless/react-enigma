@@ -7,7 +7,7 @@ import RotorWindow from '../components/RotorWindow';
 import RotorDnD from '../components/RotorDnD';
 
 import * as rotorActions from '../actions/rotor_actions';
-import { RotorTypes } from '../constants';
+import { GREEK_WHEEL } from '../constants';
 import { greekWheelKeys } from '../../enigma/constants';
 import RadioButtonSelect from '../components/RadioButtonSelect';
 
@@ -36,9 +36,10 @@ class Rotor extends Component {
     }
 
     renderRotorSelector() {
-        return this.props.rotorType === RotorTypes.GREEK_WHEEL ?
-            <RadioButtonSelect models={greekWheelKeys} /> :
-            <RotorDnD handleDrop={this.handleDrop} model={this.props.model}/>;
+        const { model } = this.props;
+        return this.props.rotorType === GREEK_WHEEL ?
+            <RadioButtonSelect models={greekWheelKeys} model={model}/> :
+            <RotorDnD handleDrop={this.handleDrop} model={model}/>;
     }
 
     render() {
