@@ -39,6 +39,11 @@ export default function rotorsReducer(state = initialState, action) {
                     model: action.payload.model
                 }
             }
+        case RotorActionTypes.SET_REFLECTOR_MODEL:
+            return {
+                ...state,
+                [REFLECTOR]: action.payload
+            }
     }   
     return state;
 }
