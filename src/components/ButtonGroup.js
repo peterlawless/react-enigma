@@ -10,7 +10,7 @@ export default props => {
                         <div
                             key={model}
                             onClick={() => {
-                                if (!modelInUse) { props.handleClick({ model }) }
+                                if (!modelInUse) { props.handleClick( model ) }
                             }}
                             className={ modelInUse ? 'selected' : ''}
                         >

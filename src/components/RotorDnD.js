@@ -4,7 +4,7 @@ import RotorDropTarget from './RotorDropTarget';
 
 export default ({model, handleDrop}) => {
     return (
-        <RotorDropTarget handleDrop={handleDrop}>
+        <RotorDropTarget handleDrop={({model}) => handleDrop(model)}>
             { model ? <RotorDragSource model={model}/> : null}
         </RotorDropTarget>
     );

@@ -30,7 +30,7 @@ class Rotor extends Component {
         });
     }
 
-    handleSelect({model}) {
+    handleSelect(model) {
         const {setModel, rotorType} = this.props;
         setModel(rotorType, model);
     }

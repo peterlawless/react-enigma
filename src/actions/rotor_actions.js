@@ -11,7 +11,14 @@ export function advanceRotor(rotorType) {
 // and so we might not need to unpack them just to pack them back up again.
 export function setModel(rotorType, model) {
     return {
-        type: RotorActionTypes.SET_MODEL,
+        type: RotorActionTypes.SET_ROTOR_MODEL,
         payload: { rotorType, model }
+    };
+}
+
+export function setReflectorModel(model) {
+    return {
+        type: RotorActionTypes.SET_REFLECTOR_MODEL,
+        payload: model
     };
 }

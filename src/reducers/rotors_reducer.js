@@ -2,6 +2,7 @@ import { alphabetBiMap, RotorTurnoverLetters } from '../../enigma/constants';
 import { alphabetLoopIncrement, alphabetLoopDecrement } from '../../enigma/utils';
 import {
     RotorActionTypes,
+    REFLECTOR,
     GREEK_WHEEL,
     SLOW_ROTOR,
     CENTER_ROTOR,
@@ -9,6 +10,7 @@ import {
 } from '../constants';
 
 const initialState = {
+    [REFLECTOR]: 'b',
     [GREEK_WHEEL]: {
         model: 'beta',
         exposedLetter: 'A'
@@ -29,7 +31,7 @@ const initialState = {
 
 export default function rotorsReducer(state = initialState, action) {
     switch (action.type) {
-        case RotorActionTypes.SET_MODEL:
+        case RotorActionTypes.SET_ROTOR_MODEL:
             return {
                 ...state,
                 [action.payload.rotorType]: {
