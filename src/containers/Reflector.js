@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setReflectorModel } from '../actions/rotor_actions';
+import { setReflectorModel } from '../actions/scrambler_actions';
 import ButtonGroup from '../components/ButtonGroup';
 import { reflectorKeys } from '../../enigma/constants';
 import { REFLECTOR } from '../constants';
@@ -23,7 +23,7 @@ class Reflector extends Component {
 
 function mapStateToProps(state) {
     return {
-        model: state.rotors[REFLECTOR]
+        model: state.scrambler[REFLECTOR]
     }
 }
 

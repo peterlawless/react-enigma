@@ -4,12 +4,9 @@ import { connect } from 'react-redux';
 import RotorDnD from '../components/RotorDnD';
 
 import { rotorKeys } from '../../enigma/constants';
+import { SLOW_ROTOR, CENTER_ROTOR, FAST_ROTOR } from '../constants';
 
 class WheelBox extends Component {
-    componentDidMount() {
-
-    }
-
     render() {
         const { rotorsInUse } = this.props;
         return (
@@ -25,10 +22,10 @@ class WheelBox extends Component {
     }
 }
 
-function mapStateToProps({rotors}) {
+function mapStateToProps({scrambler}) {
     const rotorsInUse = []
-    for ( const rotor in rotors) {
-        rotorsInUse.push(rotors[rotor].model);
+    for ( const rotor in scrambler) {
+        rotorsInUse.push(scrambler[rotor].model);
     }
     return { rotorsInUse };
 }

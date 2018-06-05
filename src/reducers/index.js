@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import rotors from './rotors_reducer';
+import scrambler from './scrambler_reducer';
 
 export default combineReducers({
-    rotors
+    scrambler
 });
 
 // eventually there will also be a reducer for the scrambleboard
