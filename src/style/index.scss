@@ -11,9 +11,18 @@ body {
     flex-direction: row
 }
 
-.rotors {
+.scrambler {
     display: flex;
     flex-direction: row;
+}
+
+// use a mixin here
+.reflector {
+    height: 220px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .rotor {

@@ -13,11 +13,17 @@ class Reflector extends Component {
 
     render() {
         const { setReflectorModel, model } = this.props;
-        return <ButtonGroup
-                model={model}
-                models={reflectorKeys}
-                handleClick={setReflectorModel}
-                />;
+        return (
+            <div className="reflector">
+                <div>
+                    <ButtonGroup
+                        model={model}
+                        models={reflectorKeys}
+                        handleClick={setReflectorModel}
+                    />
+                </div>
+            </div>
+        );
     }
 }
 

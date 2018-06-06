@@ -12,7 +12,7 @@ import {
 export default class Scrambler extends Component {
     render() {
         return (
-            <div className= "rotors">
+            <div className= "scrambler">
                 <Reflector />
                 <Rotor rotorType={GREEK_WHEEL} />
                 <Rotor rotorType={SLOW_ROTOR} />
