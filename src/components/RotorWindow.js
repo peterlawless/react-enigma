@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { alphabetBiMap } from '../../enigma/constants';
+import { alphabetLoopIncrement, alphabetLoopDecrement } from '../../enigma/utils';
 
 export default props => {
     if( props.status == 'entering') {
@@ -11,13 +11,13 @@ export default props => {
             <div className="rotor-window-overlay"></div>            
             <div className={'rotor-wheel ' + appliedAnimation}>
                 <div className="rotor-letter">
-                    {alphabetBiMap.inverse.get((props.number + 25) % 26)}
+                    {alphabetLoopDecrement(props.letter)}
                 </div>                            
                 <div className="rotor-letter">
-                    {alphabetBiMap.inverse.get(props.number)}
+                    {props.letter}
                 </div>
                 <div className="rotor-letter">
-                    {alphabetBiMap.inverse.get((props.number + 1) % 26)}
+                    {alphabetLoopIncrement(props.letter)}
                 </div>
             </div>
         </div>

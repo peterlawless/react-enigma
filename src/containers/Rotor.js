@@ -14,20 +14,8 @@ import ButtonGroup from '../components/ButtonGroup';
 class Rotor extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            number: 25,
-            in: false,
-            forwards: true
-        };
-        this.handleClick = this.handleClick.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
         this.renderRotorSelector = this.renderRotorSelector.bind(this);
-    }
-
-    handleClick(e) {
-        this.setState({
-            in: true
-        });
     }
 
     handleSelect(model) {
@@ -51,23 +39,23 @@ class Rotor extends Component {
             <div className="rotor">
                 <div className="rotor-assembly-wrapper">
                     <div className="rotor-turnover-button">
-                        <a onClick={() => this.setState({in: true, forwards: false})}>
+                        <a onClick={() => {return null;}}>
                             <FontAwesome tag="span" size="2x" name="arrow-circle-up" />
                         </a>
                     </div>
                     <Transition
                         timeout={150}
-                        in={this.state.in}
                         onEntered={() => {
-                            var direction = this.state.forwards ? 1 : -1;
-                            this.setState({number: (this.state.number + direction + 26) % 26, in: false});
+                            return null;
                             }} >
                         {status => (
-                            <RotorWindow status={status} number={this.state.number} forwards={this.state.forwards} />
+                            <RotorWindow
+                                letter={this.props.exposedLetter} 
+                            />
                         )}    
                     </Transition>
                     <div className="rotor-turnover-button">
-                        <a onClick={() => this.setState({in: true, forwards: true})}>
+                        <a onClick={() => {return null;}}>
                             <FontAwesome tag="span" size="2x" name="arrow-circle-down" />
                         </a>   
                     </div>         
