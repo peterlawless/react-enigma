@@ -35,11 +35,12 @@ class Rotor extends Component {
     }
 
     render() {
+        const { advanceRotor, reverseRotor, rotorType } = this.props;
         return (
             <div className="rotor">
                 <div className="rotor-assembly-wrapper">
                     <div className="rotor-turnover-button">
-                        <a onClick={() => {return null;}}>
+                        <a onClick={() => {advanceRotor(rotorType)}}>
                             <FontAwesome tag="span" size="2x" name="arrow-circle-up" />
                         </a>
                     </div>
@@ -55,7 +56,7 @@ class Rotor extends Component {
                         )}    
                     </Transition>
                     <div className="rotor-turnover-button">
-                        <a onClick={() => {return null;}}>
+                        <a onClick={() => {reverseRotor(rotorType)}}>
                             <FontAwesome tag="span" size="2x" name="arrow-circle-down" />
                         </a>   
                     </div>         
