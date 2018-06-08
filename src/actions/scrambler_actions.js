@@ -3,7 +3,14 @@ import { RotorActionTypes } from '../constants';
 export function advanceRotor(rotorType) {
     return {
         type: RotorActionTypes.ADVANCE,
-        payload: { rotorType }
+        payload: rotorType
+    };
+}
+
+export function reverseRotor(rotorType) {
+    return {
+        type: RotorActionTypes.REVERSE,
+        payload: rotorType
     };
 }
 

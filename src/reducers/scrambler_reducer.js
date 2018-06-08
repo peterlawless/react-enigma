@@ -38,12 +38,28 @@ export default function rotorsReducer(state = initialState, action) {
                     ...state[action.payload.rotorType],
                     model: action.payload.model
                 }
-            }
+            };
         case RotorActionTypes.SET_REFLECTOR_MODEL:
             return {
                 ...state,
                 [REFLECTOR]: action.payload
-            }
+            };
+        case RotorActionTypes.ADVANCE:
+            return {
+                ...state,
+                [action.payload]: {
+                    ...state[action.payload],
+                    exposedLetter: alphabetLoopIncrement(state[action.payload].exposedLetter)
+                }
+            };
+        case RotorActionTypes.REVERSE:
+            return {
+                ...state,
+                [action.payload]: {
+                    ...state[action.payload],
+                    exposedLetter: alphabetLoopDecrement(state[action.payload].exposedLetter)
+                }
+            };
     }   
     return state;
 }
