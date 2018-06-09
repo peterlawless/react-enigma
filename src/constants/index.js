@@ -7,7 +7,8 @@ export const RotorActionTypes = {
     ADVANCE: 'advance',
     REVERSE: 'reverse',
     SET_ROTOR_MODEL: 'set_model',
-    SET_REFLECTOR_MODEL: 'set_reflector_model'
+    SET_REFLECTOR_MODEL: 'set_reflector_model',
+    ENIGMA_BUTTON_DEPRESS: 'enigma_button_depress'
 };
 
 export const REFLECTOR = 'reflector';
