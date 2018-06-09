@@ -30,12 +30,8 @@ const initialState = {
 };
 
 // perhaps this should be in the enigma utility functions?
-function isTurnoverLetter(rotor) {
+function isOnTurnoverLetter(rotor) {
     return !!RotorTurnoverLetters[rotor.model][rotor.exposedLetter]
-}
-
-function calculateExposedLetter(currentLetter, previousRotor) {
-    return isTurnoverLetter(previousRotor) ? alphabetLoopIncrement(currentLetter) : currentLetter;
 }
 
 export default function rotorsReducer(state = initialState, action) {
@@ -78,11 +74,15 @@ export default function rotorsReducer(state = initialState, action) {
                 },
                 [CENTER_ROTOR]: {
                     ...state[CENTER_ROTOR],
-                    exposedLetter: calculateExposedLetter(state[CENTER_ROTOR].exposedLetter, state[FAST_ROTOR])
+                    exposedLetter: isOnTurnoverLetter(state[FAST_ROTOR]) ?
+                                       alphabetLoopIncrement(state[CENTER_ROTOR].exposedLetter) :
+                                       state[CENTER_ROTOR].exposedLetter    
                 },
                 [SLOW_ROTOR]: {
                     ...state[SLOW_ROTOR],
-                    exposedLetter: calculateExposedLetter(state[SLOW_ROTOR].exposedLetter, state[CENTER_ROTOR])
+                    exposedLetter: (isOnTurnoverLetter(state[FAST_ROTOR]) && isOnTurnoverLetter(state[CENTER_ROTOR])) ?
+                                       alphabetLoopIncrement(state[SLOW_ROTOR].exposedLetter) :
+                                       state[SLOW_ROTOR].exposedLetter
                 }
             }
     }   
