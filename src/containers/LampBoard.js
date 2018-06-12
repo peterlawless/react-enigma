@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import LampElement from './LampElement';
+import { connect } from 'react-redux';
+import LampElement from '../components/LampElement';
 
-export default class Lampboard extends Component {
+class Lampboard extends Component {
     constructor(props) {
         super(props);
         this.getRowHtml = this.getRowHtml.bind(this);
     }
 
     getRowHtml(array) {
-        return array.map(letter => LampElement({letter}));
+        const { illuminatedLetter } = this.props;
+        return array.map(letter => LampElement({letter, illuminated: (letter === illuminatedLetter)}));
     }
 
     render() {
@@ -27,3 +29,11 @@ export default class Lampboard extends Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        illuminatedLetter: state.lampboard
+    };
+}
+
+export default connect(mapStateToProps)(Lampboard);

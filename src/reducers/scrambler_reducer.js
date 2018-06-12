@@ -49,7 +49,7 @@ export default function rotorsReducer(state = initialState, action) {
                 ...state,
                 [REFLECTOR]: action.payload
             };
-        case RotorActionTypes.ADVANCE:
+        case RotorActionTypes.ROTOR_ADVANCE:
             return {
                 ...state,
                 [action.payload]: {
@@ -57,7 +57,7 @@ export default function rotorsReducer(state = initialState, action) {
                     exposedLetter: alphabetLoopIncrement(state[action.payload].exposedLetter)
                 }
             };
-        case RotorActionTypes.REVERSE:
+        case RotorActionTypes.ROTOR_REVERSE:
             return {
                 ...state,
                 [action.payload]: {
@@ -65,7 +65,7 @@ export default function rotorsReducer(state = initialState, action) {
                     exposedLetter: alphabetLoopDecrement(state[action.payload].exposedLetter)
                 }
             };
-        case RotorActionTypes.ENIGMA_BUTTON_DEPRESS:
+        case RotorActionTypes.ENIGMA_ADVANCE:
             return {
                 ...state,
                 [FAST_ROTOR]: {

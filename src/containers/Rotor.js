@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import RotorWindow from '../components/RotorWindow';
 import RotorDnD from '../components/RotorDnD';
 
-import * as rotorActions from '../actions/scrambler_actions';
+import * as scramblerActions from '../actions/scrambler_actions';
 import { GREEK_WHEEL } from '../constants';
 import { greekWheelKeys } from '../../enigma/constants';
 import ButtonGroup from '../components/ButtonGroup';
@@ -71,4 +71,4 @@ function mapStateToProps(state, ownProps) {
     return state.scrambler[ownProps.rotorType];
 }
 
-export default connect(mapStateToProps, rotorActions)(Rotor);
+export default connect(mapStateToProps, scramblerActions)(Rotor);

@@ -6,7 +6,7 @@ import HMTL5Backend from 'react-dnd-html5-backend';
 import '../style/index.scss';
 
 import Scrambler from './Scrambler';
-import LampBoard from './LampBoard';
+import LampBoard from '../containers/LampBoard';
 import WheelBox from '../containers/WheelBox';
 
 class App extends Component {

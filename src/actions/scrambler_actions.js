@@ -2,14 +2,14 @@ import { RotorActionTypes } from '../constants';
 
 export function advanceRotor(rotorType) {
     return {
-        type: RotorActionTypes.ADVANCE,
+        type: RotorActionTypes.ROTOR_ADVANCE,
         payload: rotorType
     };
 }
 
 export function reverseRotor(rotorType) {
     return {
-        type: RotorActionTypes.REVERSE,
+        type: RotorActionTypes.ROTOR_REVERSE,
         payload: rotorType
     };
 }
@@ -28,9 +28,8 @@ export function setReflectorModel(model) {
     };
 }
 
-export function enigmaButtonDepress(letter) {
+export function enigmaAdvance() {
     return {
-        type: RotorActionTypes.ENIGMA_BUTTON_DEPRESS,
-        payload: letter
+        type: RotorActionTypes.ENIGMA_ADVANCE,
     };
 }

@@ -1,12 +1,22 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+
+// Middlewares
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import enigmaMiddleware from './middlewares/enigma';
+
 import { Provider } from 'react-redux';
 
 import rootReducer from './reducers';
 import App from './components/App';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(
+    thunk,
+    enigmaMiddleware,
+    logger
+));
 
 var div  = document.createElement('div');
 div.id = "app";

@@ -206,9 +206,9 @@ body {
         justify-content: center;
         background-image: linear-gradient(black, #111);
         border-radius: inherit;
-    }
-    &.glow {
-        color: beige;
-        text-shadow: 0 0 15px cornsilk;
+        &.glow {
+            color: beige;
+            text-shadow: 0 0 15px cornsilk;
+        }
     }
 }
