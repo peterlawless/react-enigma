@@ -192,7 +192,7 @@ body {
     margin: 0 20px;
     font-size: 30px;
     font-weight: 600;
-    color: cornsilk;
+    color: rgba(245, 245, 220, 0.65);
     background-color: black;
     background-image: linear-gradient(-45deg, #333 30%, black);
     display: flex;
@@ -208,7 +208,7 @@ body {
         border-radius: inherit;
         &.glow {
             color: beige;
-            text-shadow: 0 0 15px cornsilk;
+            text-shadow: 5px 5px 30px cornsilk, -5px -5px 30px cornsilk, -5px 5px 30px cornsilk, 5px -5px 30px cornsilk;
         }
     }
 }
