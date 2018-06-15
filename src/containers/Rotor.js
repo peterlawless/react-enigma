@@ -9,6 +9,7 @@ import RotorDnD from '../components/RotorDnD';
 import * as scramblerActions from '../actions/scrambler_actions';
 import { GREEK_WHEEL } from '../constants';
 import { greekWheelKeys } from '../../enigma/constants';
+import { shiftNumber } from '../../enigma/utils';
 import ButtonGroup from '../components/ButtonGroup';
 
 class Rotor extends Component {
@@ -16,6 +17,24 @@ class Rotor extends Component {
         super(props);
         this.handleSelect = this.handleSelect.bind(this);
         this.renderRotorSelector = this.renderRotorSelector.bind(this);
+        this.state = {
+            letter: null,
+            inProp: false,
+            forwards: true
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.exposedLetter !== prevProps.exposedLetter) {
+            this.setState({
+                inProp: true,
+                forwards: (shiftNumber(prevProps.exposedLetter, this.props.exposedLetter) == 1) // TODO: extract this to a utility function
+            });
+        }
+    }
+
+    componentDidMount() {
+        this.setState({ letter: this.props.exposedLetter })
     }
 
     handleSelect(model) {
@@ -35,7 +54,8 @@ class Rotor extends Component {
     }
 
     render() {
-        const { advanceRotor, reverseRotor, rotorType } = this.props;
+        const { exposedLetter, advanceRotor, reverseRotor, rotorType } = this.props;
+        const { inProp, letter, forwards } = this.state;
         return (
             <div className="rotor">
                 <div className="rotor-assembly-wrapper">
@@ -46,12 +66,20 @@ class Rotor extends Component {
                     </div>
                     <Transition
                         timeout={150}
-                        onEntered={() => {
-                            return null;
-                            }} >
+                        in={inProp}
+                        onEntered={
+                            () => {
+                                this.setState({
+                                    letter: exposedLetter,
+                                    inProp: false
+                                });
+                            }
+                        } >
                         {status => (
                             <RotorWindow
-                                letter={this.props.exposedLetter} 
+                                letter={letter}
+                                status={status}
+                                forwards={forwards}
                             />
                         )}    
                     </Transition>
