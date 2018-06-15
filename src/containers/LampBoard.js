@@ -26,13 +26,11 @@ class Lampboard extends Component {
         const { enigmaButtonDepress } = this.props;
         const keyPressed = e.key.toUpperCase();
         if (!e.repeat && isSingleLetter(keyPressed)) {
-            // console.log(keyPressed, "keyPress");
             enigmaButtonDepress(keyPressed);
         }
     }
 
     handleKeyUp(e) {
-        // console.log("keyUp");
         this.props.enigmaButtonRelease();
     }
 

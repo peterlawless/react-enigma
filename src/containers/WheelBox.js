@@ -5,7 +5,6 @@ import RotorDnD from '../components/RotorDnD';
 
 import { rotorKeys } from '../../enigma/constants';
 import { SLOW_ROTOR, CENTER_ROTOR, FAST_ROTOR } from '../constants';
-import { enigmaButtonDepress } from '../actions/enigma_actions';
 
 class WheelBox extends Component {
     render() {
@@ -18,7 +17,6 @@ class WheelBox extends Component {
                         <RotorDnD model={availableModel} key={model} handleDrop={() => {}}/>
                     );
                 })}
-                <button onClick={() => this.props.enigmaButtonDepress('E')}>Click me</button>
             </header>
         );
     }
@@ -32,4 +30,4 @@ function mapStateToProps({scrambler}) {
     return { rotorsInUse };
 }
 
-export default connect(mapStateToProps, { enigmaButtonDepress })(WheelBox);
+export default connect(mapStateToProps)(WheelBox);
