@@ -3,16 +3,11 @@ export const ItemTypes = {
     GREEK_WHEEL: 'greekWheel'
 };
 
-export const RotorActionTypes = {
-    ROTOR_ADVANCE: 'advance',
-    ROTOR_REVERSE: 'reverse',
-    SET_ROTOR_MODEL: 'set_model',
-    SET_REFLECTOR_MODEL: 'set_reflector_model',
-    ENIGMA_ADVANCE: 'enigma_advance',
-    
-};
-
 export const ENIGMA_ADVANCE = 'enigma_advance';
+export const ROTOR_ADVANCE = 'advance';
+export const ROTOR_REVERSE = 'reverse';
+export const SET_ROTOR_MODEL = 'set_rotor_model';
+export const SET_REFLECTOR_MODEL = 'set_reflector_model';
 
 export const ENCRYPT = 'encrypt';
 export const SET_CIPHER_LETTER = 'set_cipher_letter';

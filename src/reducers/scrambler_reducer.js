@@ -1,7 +1,11 @@
 import { alphabetBiMap, RotorTurnoverLetters } from '../../enigma/constants';
 import { alphabetLoopIncrement, alphabetLoopDecrement } from '../../enigma/utils';
 import {
-    RotorActionTypes,
+    SET_ROTOR_MODEL,
+    ROTOR_ADVANCE,
+    ROTOR_REVERSE,
+    SET_REFLECTOR_MODEL,
+    ENIGMA_ADVANCE,
     REFLECTOR,
     GREEK_WHEEL,
     SLOW_ROTOR,
@@ -36,7 +40,7 @@ function isOnTurnoverLetter(rotor) {
 
 export default function rotorsReducer(state = initialState, action) {
     switch (action.type) {
-        case RotorActionTypes.SET_ROTOR_MODEL:
+        case SET_ROTOR_MODEL:
             return {
                 ...state,
                 [action.payload.rotorType]: {
@@ -44,12 +48,12 @@ export default function rotorsReducer(state = initialState, action) {
                     model: action.payload.model
                 }
             };
-        case RotorActionTypes.SET_REFLECTOR_MODEL:
+        case SET_REFLECTOR_MODEL:
             return {
                 ...state,
                 [REFLECTOR]: action.payload
             };
-        case RotorActionTypes.ROTOR_ADVANCE:
+        case ROTOR_ADVANCE:
             return {
                 ...state,
                 [action.payload]: {
@@ -57,7 +61,7 @@ export default function rotorsReducer(state = initialState, action) {
                     exposedLetter: alphabetLoopIncrement(state[action.payload].exposedLetter)
                 }
             };
-        case RotorActionTypes.ROTOR_REVERSE:
+        case ROTOR_REVERSE:
             return {
                 ...state,
                 [action.payload]: {
@@ -65,7 +69,7 @@ export default function rotorsReducer(state = initialState, action) {
                     exposedLetter: alphabetLoopDecrement(state[action.payload].exposedLetter)
                 }
             };
-        case RotorActionTypes.ENIGMA_ADVANCE:
+        case ENIGMA_ADVANCE:
             return {
                 ...state,
                 [FAST_ROTOR]: {

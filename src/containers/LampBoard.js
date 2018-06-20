@@ -31,7 +31,10 @@ class Lampboard extends Component {
     }
 
     handleKeyUp(e) {
-        this.props.enigmaButtonRelease();
+        const { plainLetter, enigmaButtonRelease } = this.props;
+        if (e.key.toUpperCase() == plainLetter) {
+            this.props.enigmaButtonRelease();
+        }
     }
 
     getRowHtml(array) {

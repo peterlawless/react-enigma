@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Rotor from '../containers/Rotor';
 import Reflector from '../containers/Reflector';
 import {
-    RotorActionTypes,
     GREEK_WHEEL,
     SLOW_ROTOR,
     CENTER_ROTOR,
