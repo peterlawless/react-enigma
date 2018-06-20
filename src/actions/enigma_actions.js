@@ -10,7 +10,7 @@ export function enigmaEncrypt(letter) {
 
 export function enigmaButtonDepress(letter) {
     return function(dispatch) {
-        dispatch(enigmaAdvance());
+        dispatch(enigmaAdvance(letter));
         dispatch(enigmaEncrypt(letter));
     };
 }

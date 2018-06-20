@@ -28,8 +28,9 @@ export function setReflectorModel(model) {
     };
 }
 
-export function enigmaAdvance() {
+export function enigmaAdvance(letter) {
     return {
         type: RotorActionTypes.ENIGMA_ADVANCE,
+        payload: letter
     };
 }

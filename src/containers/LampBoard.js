@@ -23,9 +23,9 @@ class Lampboard extends Component {
     }
 
     handleKeyPress(e) {
-        const { enigmaButtonDepress } = this.props;
+        const { enigmaButtonDepress, plainLetter } = this.props;
         const keyPressed = e.key.toUpperCase();
-        if (!e.repeat && isSingleLetter(keyPressed)) {
+        if (!e.repeat && isSingleLetter(keyPressed) && !plainLetter) {
             enigmaButtonDepress(keyPressed);
         }
     }
@@ -35,8 +35,8 @@ class Lampboard extends Component {
     }
 
     getRowHtml(array) {
-        const { illuminatedLetter } = this.props;
-        return array.map(letter => LampElement({letter, illuminated: (letter === illuminatedLetter)}));
+        const { cipherLetter } = this.props;
+        return array.map(letter => LampElement({letter, illuminated: (letter === cipherLetter)}));
     }
 
     render() {
@@ -57,9 +57,7 @@ class Lampboard extends Component {
 }
 
 function mapStateToProps(state) {
-    return {
-        illuminatedLetter: state.lampboard
-    };
+    return { ...state.lampboard };
 }
 
 export default connect(mapStateToProps, {enigmaButtonDepress, enigmaButtonRelease})(Lampboard);

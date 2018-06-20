@@ -12,6 +12,8 @@ export const RotorActionTypes = {
     
 };
 
+export const ENIGMA_ADVANCE = 'enigma_advance';
+
 export const ENCRYPT = 'encrypt';
 export const SET_CIPHER_LETTER = 'set_cipher_letter';
 export const ENIGMA_BUTTON_DEPRESS = 'enigma_button_depress';
