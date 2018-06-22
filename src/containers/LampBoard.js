@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { enigmaButtonDepress, enigmaButtonRelease } from '../actions/enigma_actions';
+import { enigmaButtonRelease, enigmaButtonDepress } from '../actions/enigma_actions';
 import { isSingleLetter } from '../../enigma/utils';
 import LampElement from '../components/LampElement';
 

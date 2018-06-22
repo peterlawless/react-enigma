@@ -5,12 +5,12 @@ import {
     ROTOR_ADVANCE,
     ROTOR_REVERSE,
     SET_REFLECTOR_MODEL,
-    ENIGMA_ADVANCE,
     REFLECTOR,
     GREEK_WHEEL,
     SLOW_ROTOR,
     CENTER_ROTOR,
-    FAST_ROTOR
+    FAST_ROTOR,
+    ENIGMA_BUTTON_DEPRESS
 } from '../constants';
 
 const initialState = {
@@ -69,7 +69,7 @@ export default function rotorsReducer(state = initialState, action) {
                     exposedLetter: alphabetLoopDecrement(state[action.payload].exposedLetter)
                 }
             };
-        case ENIGMA_ADVANCE:
+        case ENIGMA_BUTTON_DEPRESS:
             return {
                 ...state,
                 [FAST_ROTOR]: {

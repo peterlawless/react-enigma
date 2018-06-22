@@ -7,7 +7,7 @@ import RotorWindow from '../components/RotorWindow';
 import RotorDnD from '../components/RotorDnD';
 
 import * as scramblerActions from '../actions/scrambler_actions';
-import { GREEK_WHEEL } from '../constants';
+import { GREEK_WHEEL, FAST_ROTOR } from '../constants';
 import { greekWheelKeys } from '../../enigma/constants';
 import { shiftNumber } from '../../enigma/utils';
 import ButtonGroup from '../components/ButtonGroup';
@@ -16,6 +16,7 @@ class Rotor extends Component {
     constructor(props) {
         super(props);
         this.handleSelect = this.handleSelect.bind(this);
+        this.rotorTurnoverComplete = this.rotorTurnoverComplete.bind(this);
         this.renderRotorSelector = this.renderRotorSelector.bind(this);
         this.state = {
             letter: null,
@@ -40,6 +41,16 @@ class Rotor extends Component {
     handleSelect(model) {
         const {setModel, rotorType} = this.props;
         setModel(rotorType, model);
+    }
+
+    // Potential refactor: consider making FastRotor and GreekWheel into components
+    // that extend from Rotor?
+
+    rotorTurnoverComplete() {
+        const { rotorType, enigmaAdvanceSuccess } = this.props;
+        if (rotorType === FAST_ROTOR) {
+            enigmaAdvanceSuccess();
+        }
     }
 
     renderRotorSelector() {
@@ -72,7 +83,7 @@ class Rotor extends Component {
                                 this.setState({
                                     letter: exposedLetter,
                                     inProp: false
-                                });
+                                }, () => this.rotorTurnoverComplete());
                             }
                         } >
                         {status => (

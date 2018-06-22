@@ -3,7 +3,7 @@ export const ItemTypes = {
     GREEK_WHEEL: 'greekWheel'
 };
 
-export const ENIGMA_ADVANCE = 'enigma_advance';
+export const ENIGMA_ADVANCE_SUCCESS = 'enigma_advance_success';
 export const ROTOR_ADVANCE = 'advance';
 export const ROTOR_REVERSE = 'reverse';
 export const SET_ROTOR_MODEL = 'set_rotor_model';

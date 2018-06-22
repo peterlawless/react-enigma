@@ -1,17 +1,9 @@
-import { ENCRYPT, ENIGMA_BUTTON_RELEASE } from '../constants';
-import { enigmaAdvance } from './scrambler_actions';
-
-export function enigmaEncrypt(letter) {
-    return {
-        type: ENCRYPT,
-        payload: letter
-    };
-}
+import { ENIGMA_BUTTON_DEPRESS, ENIGMA_BUTTON_RELEASE } from '../constants';
 
 export function enigmaButtonDepress(letter) {
-    return function(dispatch) {
-        dispatch(enigmaAdvance(letter));
-        dispatch(enigmaEncrypt(letter));
+    return {
+        type: ENIGMA_BUTTON_DEPRESS,
+        payload: letter
     };
 }
 

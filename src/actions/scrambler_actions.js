@@ -1,5 +1,5 @@
 import {
-    ENIGMA_ADVANCE,
+    ENIGMA_ADVANCE_SUCCESS,
     SET_REFLECTOR_MODEL,
     ROTOR_ADVANCE,
     ROTOR_REVERSE 
@@ -33,9 +33,6 @@ export function setReflectorModel(model) {
     };
 }
 
-export function enigmaAdvance(letter) {
-    return {
-        type: ENIGMA_ADVANCE,
-        payload: letter
-    };
+export function enigmaAdvanceSuccess() {
+    return { type: ENIGMA_ADVANCE_SUCCESS };
 }
