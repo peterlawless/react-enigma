@@ -1,6 +1,7 @@
 import {
     ENIGMA_ADVANCE_SUCCESS,
     SET_REFLECTOR_MODEL,
+    SET_ROTOR_MODEL,
     ROTOR_ADVANCE,
     ROTOR_REVERSE 
 } from '../constants';
