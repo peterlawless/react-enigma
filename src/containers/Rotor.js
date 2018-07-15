@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FontAwesome from 'react-fontawesome';
 import Transition from 'react-transition-group/Transition';
 import { connect } from 'react-redux';
 
@@ -72,7 +71,7 @@ class Rotor extends Component {
                 <div className="rotor-assembly-wrapper">
                     <div className="rotor-turnover-button">
                         <a onClick={() => {advanceRotor(rotorType)}}>
-                            <FontAwesome tag="span" size="2x" name="arrow-circle-up" />
+                            <i tag="span" className="fa fa-arrow-circle-up fa-2x" />
                         </a>
                     </div>
                     <Transition
@@ -96,7 +95,7 @@ class Rotor extends Component {
                     </Transition>
                     <div className="rotor-turnover-button">
                         <a onClick={() => {reverseRotor(rotorType)}}>
-                            <FontAwesome tag="span" size="2x" name="arrow-circle-down" />
+                            <i className="fa fa-arrow-circle-down fa-2x" />
                         </a>   
                     </div>         
                 </div>

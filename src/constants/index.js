@@ -18,3 +18,5 @@ export const GREEK_WHEEL = 'greekWheel';
 export const SLOW_ROTOR = 'slowRotor';
 export const CENTER_ROTOR  = 'centerRotor';
 export const FAST_ROTOR = 'fastRotor';
+
+export const CABLE_COUNT_MAXIMUM = 7;

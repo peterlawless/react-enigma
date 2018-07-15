@@ -1,4 +1,4 @@
-import { alphabetBiMap, RotorTurnoverLetters } from '../../enigma/constants';
+import { RotorTurnoverLetters } from '../../enigma/constants';
 import { alphabetLoopIncrement, alphabetLoopDecrement } from '../../enigma/utils';
 import {
     SET_ROTOR_MODEL,
