@@ -7,9 +7,13 @@ export default class PlugBoardCable extends Component {
     }
 
     render() {
+        const { key, value } = this.props;
         return (
             <div>
-                This is a plugboard cable!
+                <div>{key}</div>
+                <div>{value}</div>
+                <button>Edit</button>
+                <button>Delete</button>
             </div>
         );
     }
