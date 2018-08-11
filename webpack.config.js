@@ -9,7 +9,11 @@ module.exports = {
     },
     output: {
         filename: 'bundle.[chunkhash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
+    },
+    devServer: {
+        historyApiFallback: true
     },
     module: {
         rules: [
