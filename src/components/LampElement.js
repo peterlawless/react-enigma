@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default props => {
+const LampElement = props => {
     var illuminated = props.illuminated ? 'glow' : '';
     return (
         <div key={props.letter} className='lampboard-letter'>
@@ -10,3 +10,5 @@ export default props => {
         </div>
     )
 }
+
+export default LampElement;

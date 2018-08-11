@@ -10,6 +10,7 @@ import '../style/index.scss';
 import Scrambler from './Scrambler';
 import NavBar from './NavBar';
 import LampBoard from '../containers/LampBoard';
+import PlugBoard from '../containers/PlugBoard';
 import WheelBox from '../containers/WheelBox';
 
 class App extends Component {
@@ -27,7 +28,8 @@ class App extends Component {
                     </div>
                     <NavBar />
                     <Switch>
-                        <Route path='/' component={LampBoard} />
+                        <Route exact path='/' component={LampBoard} />
+                        <Route path="/plugboard" component={PlugBoard} />
                     </Switch>
                 </div>
             </BrowserRouter>
