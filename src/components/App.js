@@ -1,12 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import { DragDropContext } from 'react-dnd';
 import HMTL5Backend from 'react-dnd-html5-backend';
 
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import '../style/index.scss';
 
 import Scrambler from './Scrambler';
-import PlugBoard from '../containers/PlugBoard';
+import NavBar from './NavBar';
 import LampBoard from '../containers/LampBoard';
 import WheelBox from '../containers/WheelBox';
 
@@ -17,14 +19,18 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <WheelBox />
-                <div className="controls-wrapper">
-                    <Scrambler />
-                    <PlugBoard />
+            <BrowserRouter>
+                <div>
+                    <div className="controls-wrapper">
+                        <Scrambler />
+                        <WheelBox />
+                    </div>
+                    <NavBar />
+                    <Switch>
+                        <Route path='/' component={LampBoard} />
+                    </Switch>
                 </div>
-                <LampBoard />
-            </div>
+            </BrowserRouter>
         );
     }
 }

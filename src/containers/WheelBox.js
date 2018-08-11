@@ -10,14 +10,14 @@ class WheelBox extends Component {
     render() {
         const { rotorsInUse } = this.props;
         return (
-            <header className="header">
+            <div className="wheelbox">
                 {rotorKeys.map(model => {
                     const availableModel = rotorsInUse.includes(model) ? false : model;
                     return (
                         <RotorDnD model={availableModel} key={model} handleDrop={() => {}}/>
                     );
                 })}
-            </header>
+            </div>
         );
     }
 }
