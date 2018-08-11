@@ -3,10 +3,16 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <div>
-            <NavLink to='/'>Lamp Board</NavLink>
-            <NavLink to='/plugboard'>Plug Board</NavLink>
-            <NavLink to='/messenger'>Enigma Messenger</NavLink>
+        <div className="navbar">
+            <div>
+                <NavLink exact to='/'>Lamp Board</NavLink>
+            </div>
+            <div>
+                <NavLink to='/plugboard'>Plug Board</NavLink>
+            </div>
+            <div>
+                <NavLink to='/messenger'>Enigma Messenger</NavLink>
+            </div>
         </div>
     );
 }

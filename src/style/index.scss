@@ -11,32 +11,28 @@ body {
     flex-direction: row;
 }
 
+.navbar {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    div {
+        background-color: #333;
+        border-radius: 5%;
+        margin: 10px;
+        padding: 10px;
+        a {
+            color: #555;
+            text-decoration: none;
+            &.active {
+                color: white;
+            }
+        }
+    }
+}
+
 .controls-wrapper {
     display: flex;
     flex-direction: row;
-}
-
-.plugboard-button-wrapper {
-    // use a mixin here
-    width: 42px;
-    height: 42px;
-    border-radius: 5%;
-    background-color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.plugboard-button {
-    color: white;
-    background-color: black;
-    // use a mixin here
-    width: 40px;
-    height: 40px;
-    border-radius: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .scrambler {
