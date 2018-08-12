@@ -236,3 +236,17 @@ body {
         }
     }
 }
+
+// TODO: use a mixin
+.plugboard-letter {
+    width: 70px;
+    height: 70px;
+    margin: 0 20px;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(245, 245, 220, 0.65);
+}

@@ -11,7 +11,7 @@ class PlugBoard extends Component {
 
     getRowHtml(array) {
         const { cipherLetter } = this.props;
-        return array.map(letter => Plug({letter, illuminated: (letter === cipherLetter)}));
+        return array.map(letter => Plug({letter, selected: false}));
     }
 
     render() {
