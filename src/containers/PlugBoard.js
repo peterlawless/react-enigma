@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import BiMap from 'mnemonist/bi-map';
+
 import Plug from '../components/Plug';
+import OccupiedPlug from '../components/OccupiedPlug';
 
 class PlugBoard extends Component {
     constructor(props) {
         super(props);
         this.getRowHtml = this.getRowHtml.bind(this);
+        this.letterIsInUse = this.letterIsInUse.bind(this);
+        this.state = {
+        };
     }
 
     getRowHtml(array) {
-        const { cipherLetter } = this.props;
-        return array.map(letter => Plug({letter, selected: false}));
+        return array.map(letter => {
+            return this.letterIsInUse(letter) ?
+                OccupiedPlug({letter}) :
+                Plug({letter, selected: false})
+        });
+    }
+
+    letterIsInUse(letter) {
+        const { plugboard } = this.props;
+        return plugboard.has(letter) || plugboard.inverse.has(letter);
     }
 
     render() {
@@ -31,9 +45,13 @@ class PlugBoard extends Component {
     }
 }
 
+// note: both this component and the enigma "backend"
+// are wrapping a plain object "plugboard" in a BiMap object.
+// There may be an opportunity to refactor this so the app
+// refers to the plugboard as a BiMap ONLY.
 function mapStateToProps(state) {
     return {
-        plugboard: state.plugboard
+        plugboard: BiMap.from(state.plugboard)
     };
 }
 
