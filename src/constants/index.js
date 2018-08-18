@@ -19,4 +19,6 @@ export const SLOW_ROTOR = 'slowRotor';
 export const CENTER_ROTOR  = 'centerRotor';
 export const FAST_ROTOR = 'fastRotor';
 
-export const CABLE_COUNT_MAXIMUM = 7;
+// Each machine was supplied with 12 patch cables,
+// each of which had two wires and was approx. 20 cm long.
+export const CABLE_COUNT_MAXIMUM = 12;
