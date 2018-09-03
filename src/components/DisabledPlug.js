@@ -5,7 +5,7 @@ const DisabledPlug = props => {
     return (
         <div key={props.letter} className='plugboard-letter occupied'>
             <div>{props.letter}</div>
-            <div><i className={`far {icon}`}></i></div>
+            <div><i className={`far ${icon}`}></i></div>
         </div>
     );
 }
