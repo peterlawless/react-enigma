@@ -21,15 +21,17 @@ class PlugBoard extends Component {
     }
 
     getRowHtml(array) {
-        const { plugboard } = this.props;
+        const { letters } = this.state;
         return array.map(letter => {
-            return this.letterIsInUse(letter) ?
-                DisabledPlug({letter, occupied: true}) :
-                plugboard.size >= MAX_CABLE_COUNT ?
+            if (this.letterIsInUse(letter)) {
+                return DisabledPlug({letter, occupied: true});
+            } else if (letters.indexOf(letter) != -1) {
+                return Plug({letter, selected: true, handleClick: () => {this.removeLetter(letter)}});
+            } else {
+                return (letters.length >= 2) ? 
                     DisabledPlug({letter, occupied: false}) :
-                    this.state.letters.indexOf(letter) != -1 ?
-                        Plug({letter, selected: true, handleClick: () => {this.removeLetter(letter)}}) :
-                        Plug({letter, selected: false, handleClick: () => {this.addLetter(letter)}})
+                    Plug({letter, selected: false, handleClick: () => {this.addLetter(letter)}});
+            }
         });
     }
 
