@@ -6,6 +6,8 @@ import BiMap from 'mnemonist/bi-map';
 import Plug from '../components/Plug';
 import DisabledPlug from '../components/DisabledPlug';
 
+import { addCable } from '../actions/plugboard_actions';
+
 import { MAX_CABLE_COUNT } from '../constants';
 
 class PlugBoard extends Component {
@@ -15,6 +17,7 @@ class PlugBoard extends Component {
         this.letterIsInUse = this.letterIsInUse.bind(this);
         this.addLetter = this.addLetter.bind(this);
         this.removeLetter = this.removeLetter.bind(this);
+        this.connectCable = this.connectCable.bind(this);
         this.state = {
             letters: []
         };
@@ -52,7 +55,13 @@ class PlugBoard extends Component {
         })
     }
 
+    connectCable() {
+        this.props.addCable(this.state.letters);
+        this.setState({letters: []});
+    }
+
     render() {
+        const letterCount = this.state.letters.length;
         return (
             <div className="lampboard">
                 <div className="lampboard-row">
@@ -63,6 +72,16 @@ class PlugBoard extends Component {
                 </div>
                 <div className="lampboard-row">
                     {this.getRowHtml(['P', 'Y', 'X', 'C', 'V', 'B', 'N', 'M', 'L'])}
+                </div>
+                <div className="lampboard-row">
+                    <button disabled={letterCount < 2}
+                            onClick={this.connectCable}>
+                        Add Cable
+                    </button>
+                    <button disabled={letterCount == 0}
+                            onClick={() => this.setState({letters: []})} >
+                        Clear Current Selection
+                    </button>
                 </div>
             </div>
         );
@@ -79,4 +98,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(PlugBoard);
+export default connect(mapStateToProps, { addCable })(PlugBoard);
