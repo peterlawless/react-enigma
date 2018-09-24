@@ -6,3 +6,10 @@ export function addCable(letters) {
         payload: { [letters[0]]: letters[1] }
     }
 }
+
+export function removeCable(letter) {
+    return {
+        type: REMOVE_CABLE,
+        payload: letter
+    }
+}

@@ -12,6 +12,7 @@ import NavBar from './NavBar';
 import LampBoard from '../containers/LampBoard';
 import PlugBoard from '../containers/PlugBoard';
 import WheelBox from '../containers/WheelBox';
+import CableList from '../containers/CableList'
 
 class App extends Component {
     constructor(props) {
@@ -24,7 +25,10 @@ class App extends Component {
                 <div>
                     <div className="controls-wrapper">
                         <Scrambler />
-                        <WheelBox />
+                        <div>
+                            <WheelBox />
+                            <CableList/>
+                        </div>
                     </div>
                     <NavBar />
                     <Switch>

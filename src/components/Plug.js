@@ -3,7 +3,7 @@ import React from 'react';
 const Plug = props => {
     let iconClass, divClass;
     if (props.selected) {
-        iconClass = "fa-dot-circle";
+        iconClass = "fa-check-circle";
         divClass = "selected";
     } else {
         iconClass = "fa-circle";
