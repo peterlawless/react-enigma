@@ -7,7 +7,7 @@ const Cable = props => {
             <i className="fas fa-arrows-alt-h"></i>
             { props.secondLetter}
             <div className="divider"></div>
-            <i className="fas fa-times"></i>
+            <i className="fas fa-times" onClick={props.handleClick}></i>
         </div>
     );
 }
