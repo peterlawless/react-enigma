@@ -17,7 +17,7 @@ class CableList extends Component {
                 Cable({
                     firstLetter: cable,
                     secondLetter: cables[cable],
-                    handleClick: () => removeCable(cable)
+                    handleClick: removeCable
                 })
             );
         }
